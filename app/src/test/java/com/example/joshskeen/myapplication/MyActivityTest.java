@@ -1,5 +1,7 @@
 package com.example.joshskeen.myapplication;
 
+import com.squareup.fest.BuildConfig;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,4 +34,11 @@ public class MyActivityTest {
         mActivity.mClickMeButton.performClick();
         assertThat(mActivity.mHelloWorldTextView).hasText("HEY WORLD");
     }
+
+	@Test
+	public void clickingClickMeButtonChangesHelloWorldTextShouldBeFailed() {
+		assertThat(mActivity.mHelloWorldTextView).hasText("Hello world!");
+		mActivity.mClickMeButton.performClick();
+		assertThat(mActivity.mHelloWorldTextView).hasText("HEY");
+	}
 }
